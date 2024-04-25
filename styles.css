@@ -1,0 +1,27 @@
+.cutoff-text {
+  --max-line: 3;
+  --line-height: 1.4;
+
+  max-height: calc(var(--max-line) * 1em * var(--line-height));
+  line-height: var(--line-height);
+
+  overflow: hidden;
+}
+
+.expand-btn {
+  appearance: none;
+  cursor: pointer;
+  color: blue;
+}
+
+.expand-btn::before {
+  content: "Read more";
+}
+
+.expand-btn:checked::before {
+  content: "Show less";
+}
+
+.cutoff-text:has(+ .expand-btn:checked) {
+  max-height: none;
+}
